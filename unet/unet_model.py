@@ -49,7 +49,7 @@ from .unet_parts import *
 
 
 class UNet(nn.Module):
-    def __init__(self,n_channels=3,n_classes=1, bilinear=False):
+    def __init__(self,n_channels,n_classes, bilinear=False):
         super(U_Net,self).__init__()
         self.n_channels = n_channels
         self.n_classes = n_classes

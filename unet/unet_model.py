@@ -56,7 +56,7 @@ class UNet(nn.Module):
         self.bilinear = bilinear
         self.Maxpool = nn.MaxPool2d(kernel_size=2,stride=2)
 
-        self.Conv1 = conv_block(ch_in=img_ch,ch_out=64)
+        self.Conv1 = conv_block(ch_in=n_channels,ch_out=64)
         self.Conv2 = conv_block(ch_in=64,ch_out=128)
         self.Conv3 = conv_block(ch_in=128,ch_out=256)
         self.Conv4 = conv_block(ch_in=256,ch_out=512)
@@ -74,7 +74,7 @@ class UNet(nn.Module):
         self.Up2 = up_conv(ch_in=128,ch_out=64)
         self.Up_conv2 = conv_block(ch_in=128, ch_out=64)
 
-        self.Conv_1x1 = nn.Conv2d(64,output_ch,kernel_size=1,stride=1,padding=0)
+        self.Conv_1x1 = nn.Conv2d(64,n_classes,kernel_size=1,stride=1,padding=0)
 
 
     def forward(self,x):

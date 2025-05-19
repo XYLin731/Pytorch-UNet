@@ -64,12 +64,12 @@ def evaluate(net, dataloader, device, amp):
     precision = total_tp / (total_tp + total_fp) if (total_tp + total_fp) > 0 else 0
     f1 = 2 * precision * recall / (precision + recall) if (precision + recall) > 0 else 0
     # # 打印metrics
-    # print(f'Validation metrics:')
-    # print(f'Dice score: {dice_score / max(num_val_batches, 1):.4f}')
-    # print(f'Accuracy: {accuracy:.4f}')
-    # print(f'Recall: {recall:.4f}')
-    # print(f'Precision: {precision:.4f}')
-    # print(f'F1 Score: {f1:.4f}')
+    print(f'Validation metrics:')
+    print(f'Dice score: {dice_score / max(num_val_batches, 1):.4f}')
+    print(f'Accuracy: {accuracy:.4f}')
+    print(f'Recall: {recall:.4f}')
+    print(f'Precision: {precision:.4f}')
+    print(f'F1 Score: {f1:.4f}')
 
     net.train()
     # 返回字典包含所有指标
